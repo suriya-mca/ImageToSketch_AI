@@ -1,0 +1,17 @@
+1. `import cv2`: Imports the OpenCV library, which provides various computer vision and image processing functions.
+
+2. `def convert_to_pencil_sketch(image)`: Defines a function named `convert_to_pencil_sketch` that takes an input image as a parameter.
+
+3. `gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)`: Converts the input image from the BGR color space to grayscale using the `cvtColor` function. The grayscale image will be used for further processing.
+
+4. `inverted_image = cv2.bitwise_not(gray_image)`: Inverts the grayscale image using the `bitwise_not` function. This will create a negative-like effect.
+
+5. `blurred_image = cv2.GaussianBlur(inverted_image, (21, 21), 0)`: Applies a Gaussian blur to the inverted image using the `GaussianBlur` function. The blur helps in reducing noise and enhancing the pencil sketch effect. The `(21, 21)` parameter specifies the kernel size of the blur, and `0` denotes the standard deviation.
+
+6. `pencil_sketch = cv2.divide(gray_image, 255 - blurred_image, scale=256.0)`: Blends the grayscale image with the blurred inverted image using the `divide` function. This step simulates the color dodge blending mode, which produces a pencil sketch-like effect. The `255 - blurred_image` ensures that the denominator is not zero. The `scale` parameter scales the pixel values.
+
+7. `image_path = 'path_to_your_image.jpg'`: Specifies the path to the input image file. Replace `'path_to_your_image.jpg'` with the actual path to your input image.
+
+8. `image = cv2.imread(image_path)`: Reads the input image using the `imread` function and stores it in the `image` variable.
+
+9. `pencil_sketch = convert_to_pencil_sketch(image)`: Calls the `convert_to_pencil_sketch` function, passing the `image` as an argument. This converts the image to a pencil sketch.
