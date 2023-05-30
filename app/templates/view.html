@@ -8,7 +8,7 @@
     <title>AI</title>
 </head>
 <body>
-<section class="hero is-fullheight">
+<section class="hero is-fullheight is-dark">
     <div class="hero-body has-text-centered">
         <div class="container">
             <div class="columns is-mobile is-centered">
@@ -16,7 +16,8 @@
                     <!-- qr code -->
                     {% if base64_image %}
                     <img src="data:image/png;base64,{{ base64_image }}" alt="sketch image" class="animate__animated animate__zoomIn">
-                    <!-- <a class="button is-primary" href="data:image/png,{{ base64_image }}" download="Image">Save</a> -->
+                    <br></br>
+                    <a class="button is-primary" href="{{ base64_image }}" download="Image">Download</a>
                     {% else %}
                     <p>Sorry!</p>
                     {% endif %}
